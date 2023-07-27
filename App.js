@@ -5,18 +5,18 @@ const heading = React.createElement(
   {
     id: "title",
     style: {
-      background: "red",
+      background: "green",
     },
     className: "title",
   },
-  "heading"
+  "chamanthi"
 );
 const heading1 = React.createElement(
   "h1",
   {
     id: "title",
   },
-  "heading1"
+  "srinivas"
 );
 
 const container = React.createElement(
