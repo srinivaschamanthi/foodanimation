@@ -4,6 +4,8 @@
   "description": "zero to hero",
   "main": "App.js",
   "scripts": {
+    "start":"parcel index.html",
+    "build":"parcel build index.html",
     "test": "jest"
   },
   "keywords": [
