@@ -32,11 +32,20 @@
   margin: 5px;
   padding: 5px;
   width: 250px;
+  word-break: break-word;
+  border-radius: 10px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.1s;
+  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 
 .res-card:hover {
   cursor: pointer;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  /* transform: scale(1.05); */
+  transform: scale(0.95);
+  /* box-shadow: 0 12px 20px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); */
+  /* box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); */
 }
 
 .search {
@@ -45,4 +54,33 @@
 
 .res-logo {
   width: 100%;
+  border-radius: 10px;
+}
+.top-rated-button i {
+  margin-left: 5px; /* Add space between content and icon */
+}
+
+.cuisines {
+  color: #686b78;
+  font-size: 13px;
+  padding-bottom: 20px;
+  font-family: ProximaNova, arial, Helvetica Neue, sans-serif;
+}
+.costForTwo {
+  color: #686b78;
+  font-size: 13px;
+  font-family: ProximaNova, arial, Helvetica Neue, sans-serif;
+}
+.res-card-rating {
+  height: 20px;
+  width: 43px;
+  padding: 0 5px;
+  font-size: 15px;
+  background-color: #48c479;
+  /* rating above #48c479 
+  rating below 4  #db7c38 */
+  color: #fff;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
 }
