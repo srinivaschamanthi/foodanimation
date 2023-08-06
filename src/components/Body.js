@@ -1,9 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
+import {resList,newresList} from "../utils/mockData";
 import { useEffect, useState } from "react";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState(newresList);
 
   // useEffect(() => {
   //   fetchData();
@@ -31,7 +31,7 @@ const Body = () => {
           }}
           onClick={() => {
             setListOfRestaurants(
-              listOfRestaurants.filter((res) => res.data.avgRating > 4)
+              listOfRestaurants.filter((res) => res.info.avgRating > 4)
             );
           }}
         >
@@ -40,7 +40,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {listOfRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
     </div>
