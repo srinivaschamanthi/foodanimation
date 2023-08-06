@@ -1,3 +1,6 @@
+/* .app{
+    background-color: #282c3f;
+} */
 .header {
     display: flex;
     justify-content: space-between;
@@ -46,3 +49,4 @@
 .res-logo {
     width: 100%;
 }
+
