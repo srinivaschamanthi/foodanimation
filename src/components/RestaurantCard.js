@@ -3,7 +3,7 @@ import { CDN_URL } from "../utils/constants";
 const RestaurantCard = (props) => {
   const { resData } = props;
 
-  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, locality } =
+  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, locality ,areaName} =
     resData?.info;
     const buttonStyle = {
       backgroundColor: avgRating >= 4 ? '#48c479' : '#db7c38',
@@ -22,7 +22,7 @@ const RestaurantCard = (props) => {
         <span>{avgRating}</span>
       </div>
       <h4 className="costForTwo">{costForTwo}</h4>
-      <h4>{locality}</h4>
+      <h4>{locality || areaName}</h4>
     </div>
   );
 };
