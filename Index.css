@@ -85,12 +85,12 @@
   justify-content: space-around;
 }
 
-.shimmer-container{
+.shimmer-container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.shimmer-card{
+.shimmer-card {
   width: 250px;
   height: 300px;
   border-radius: 20px;
@@ -98,7 +98,7 @@
   margin: 20px;
 }
 
-.filter{
+.filter {
   display: flex;
   justify-content: space-around;
   margin: 10px;
@@ -110,7 +110,7 @@
 }
 
 .search-input {
-  margin-right: 10px; 
+  margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 500px;
@@ -122,4 +122,140 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+.linkStyle {
+  text-decoration: none;
+  color: inherit;
+}
+
+.not-found-route-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://assets.ccbp.in/frontend/react-js/ipl-dashboard-sm-bg.png");
+  background-size: cover;
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .not-found-route-container {
+    background-image: url("https://assets.ccbp.in/frontend/react-js/ipl-dashboard-lg-bg.png");
+  }
+}
+
+.not-found-heading {
+  color: #ffffff;
+  font-family: "Bree Serif";
+  font-size: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .not-found-heading {
+    font-size: 64px;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Restaurant_container {
+  max-width: 800px;
+  min-height: 800px;
+  margin: 20px auto 0;
+}
+
+.RestaurantHeader_container {
+  margin: 0 16px;
+}
+.RestaurantHeader_container_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.RestaurantRatings_wrapper__2294i {
+  border: 1px solid #e9e9eb;
+  box-shadow: 0 1px 5px #f9f9f9;
+  border-radius: 6px;
+  text-align: center;
+  padding: 8px;
+  max-width: 100px;
+  float: right;
+  background: transparent;
+}
+.RestaurantRatings_avgRating__1TOWY {
+  color: #3d9b6d;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e9e9eb;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: block;
+}
+.icon-star {
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.RestaurantRatings_totalRatings__3d6Zc {
+  font-size: 11px;
+  color: #8b8d97;
+  font-family: ProximaNovaCondensedRegular, arial, Helvetica Neue, sans-serif;
+  font-weight: 600;
+}
+
+.RestaurantHeader_dottedSeparator__2O2hU {
+  border: none;
+  border-bottom: 1px dashed #d3d3d3;
+}
+
+.RestaurantHeader_marginBottom__1rbfK {
+  margin-bottom: 18px;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.RestaurantTimeCost_wrapper__3YXF9 {
+  color: #3e4152;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+}
+
+ul {
+  padding-left: 0; /* Remove padding */
+  margin-left: 0; /* Remove margin */
+  list-style-type: none;
+}
+.RestaurantTimeCost_item__2HCUz {
+  margin-right: 24px;
+}
+.RestaurantTimeCost_icon__8UdT4 {
+  vertical-align: bottom;
+  margin-right: 10px;
+}
+
+.styles_headerNestedTitle__1PFSM {
+  color: #3e4152;
+  font-weight: 800;
+  font-size: 1.3rem;
+  display: inline-block;
+}
+.main_border__1Cc4a {
+  height: 16px;
+  border-bottom: 16px solid #f1f1f6;
+}
+
+.accordion-container {
+  box-shadow: none  ;
+  box-shadow: none;
 }
