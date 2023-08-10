@@ -9,9 +9,8 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 
-const RestaurantMenu = () => {
-  
 
+const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
 
   const { resId } = useParams(33040);
@@ -41,7 +40,7 @@ const RestaurantMenu = () => {
   const { lastMileTravel, deliveryTime } =
     resInfo?.cards[0]?.card?.card?.info.sla;
 
-  const { itemCards, title } =
+  const { itemCards, title, imageId } =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
   console.log(itemCards, "itemcards");
@@ -127,8 +126,8 @@ const RestaurantMenu = () => {
           </ul>
         </div>
       </div>
-      <div >
-        <Accordion style={{boxShadow:"none"}}>
+      <div>
+        <Accordion defaultExpanded style={{ boxShadow: "none" }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -140,20 +139,29 @@ const RestaurantMenu = () => {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              <ul>
+              <div>
                 {itemCards.map((item) => (
-                  <li key={item.card.info.id}>
-                    {item.card.info.name} -{" Rs."}
-                    {item.card.info.price / 100 ||
-                      item.card.info.defaultPrice / 100}
-                  </li>
+                  <div key={item.card.info.id}>
+                    <div className="singleItem">
+                    <div>
+                      {item.card.info.name} <br></br>
+                      {" Rs."}
+                      {item.card.info.price / 100 ||
+                        item.card.info.defaultPrice / 100}
+                    </div>
+                    <div>
+                      <img className="styles_itemImage__3CsDL" alt={item.card.info.name} src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" + item.card.info.imageId}></img>
+                    </div>
+                    </div>
+                    <div class="styles_divider__2JelH"></div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </Typography>
           </AccordionDetails>
         </Accordion>
       </div>
-      
+
       <div class="main_border__1Cc4a"></div>
     </div>
   );

@@ -259,3 +259,21 @@ ul {
   box-shadow: none  ;
   box-shadow: none;
 }
+.styles_divider__2JelH {
+  border-bottom: 0.5px solid #d3d3d3;
+  height: 0.5px;
+  margin: 20px 0;
+}
+
+.singleItem{
+  display: flex;
+  justify-content: space-between;
+}
+
+.styles_itemImage__3CsDL {
+  width: 118px;
+  height: 96px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 6px;
+}
