@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [filteredRestaurant,setFilteredRestaurant] = useState([])
-  const [searchText,setSearchText] = useState("");
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -16,12 +16,14 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.440081&lng=78.348915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+
+      // "https://www.swiggy.com/mapi/homepage/getCards?lat=17.428934&lng=78.3529326"
     );
     // 17.440081, 78.348915. gachibowli lat&lan
     // 16.989065, 82.247467 kakinada lat&lan
     const json = await data.json();
     console.log(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     // Optional Chaining
     setListOfRestaurants(
@@ -38,15 +40,25 @@ const Body = () => {
     <div className="body">
       <div className="filter">
         <div className="search-container">
-          <input className="search-input" type="text"  value={searchText} onChange={(e)=>{
-            setSearchText(e.target.value)
-          }}/>
-          <button className="search-button" onClick={()=>{
-           const filteredList =  listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase())
-
-            )
-            setFilteredRestaurant(filteredList)
-          }}>search</button>
+          <input
+            className="search-input"
+            type="text"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            className="search-button"
+            onClick={() => {
+              const filteredList = listOfRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurant(filteredList);
+            }}
+          >
+            search
+          </button>
         </div>
         <button
           className="top-rated-button"
@@ -72,8 +84,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant?.map((restaurant) => (
-          <Link className="linkStyle" key={restaurant.info.id} to={`/restaurants/${restaurant.info.id}`}>
-          <RestaurantCard  resData={restaurant} />
+          <Link
+            className="linkStyle"
+            key={restaurant.info.id}
+            to={`/restaurants/${restaurant.info.id}`}
+          >
+            <RestaurantCard resData={restaurant} />
           </Link>
         ))}
       </div>
