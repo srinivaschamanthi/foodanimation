@@ -291,3 +291,7 @@ ul {
   object-fit: cover;
   border-radius: 6px;
 }
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
+}

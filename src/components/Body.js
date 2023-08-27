@@ -3,6 +3,8 @@ import { resList, newresList } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { UseOnlineStatus } from "../utils/useOnlineStatus";
+import SimpleBackdrop from "./SimpleBackdrop";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -22,17 +24,19 @@ const Body = () => {
     // 17.440081, 78.348915. gachibowli lat&lan
     // 16.989065, 82.247467 kakinada lat&lan
     const json = await data.json();
-    console.log(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    console.log(json?.data?.cards);
     // Optional Chaining
     setListOfRestaurants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  const onlineStatus = UseOnlineStatus();
+
+  if (onlineStatus === false) return <SimpleBackdrop />;
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
