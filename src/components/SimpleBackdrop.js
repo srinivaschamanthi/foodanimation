@@ -1,7 +1,6 @@
 import * as React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
-import Button from "@mui/material/Button";
 import { UseOnlineStatus } from "../utils/useOnlineStatus";
 
 export default function SimpleBackdrop() {
@@ -16,7 +15,7 @@ export default function SimpleBackdrop() {
         open={onlineStatus}
       >
         <CircularProgress color="inherit" />
-        <h1>Looks like you ar offline🔴! Check your internet connection</h1>
+        <h1>Looks like you are offline🔴! Check your internet connection</h1>
       </Backdrop>
     </div>
   );

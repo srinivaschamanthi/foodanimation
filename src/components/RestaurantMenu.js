@@ -1,13 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {CDN_URL}   from "../utils/constants.js";
+import { CDN_URL } from "../utils/constants.js";
 import Shimmer from "./Shimmer";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MenuCategory from "./MenuCategory";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
@@ -24,7 +25,6 @@ const RestaurantMenu = () => {
         resId
     );
     const json = await data.json();
-    console.log('call',json)
     setResInfo(json.data);
   };
   if (resInfo === null) return <Shimmer />;
@@ -41,8 +41,13 @@ const RestaurantMenu = () => {
 
   const { itemCards, title, imageId } =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  const categories =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.["card"]?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
 
-  console.log(resInfo,"itemCards");
 
   return (
     <div className="Restaurant_container">
@@ -125,7 +130,7 @@ const RestaurantMenu = () => {
           </ul>
         </div>
       </div>
-      <div>
+      {/* <div>
         <Accordion defaultExpanded style={{ boxShadow: "none" }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -152,7 +157,10 @@ const RestaurantMenu = () => {
                         <img
                           className="styles_itemImage__3CsDL"
                           alt={item.card.info.name}
-                          src={CDN_URL + item.card.info.imageId || CDN_URL + item.card.info.id}
+                          src={
+                            CDN_URL + item.card.info.imageId ||
+                            CDN_URL + item.card.info.id
+                          }
                         ></img>
                       </div>
                     </div>
@@ -164,8 +172,14 @@ const RestaurantMenu = () => {
           </AccordionDetails>
         </Accordion>
       </div>
-
-      <div className="main_border__1Cc4a"></div>
+      <div className="main_border__1Cc4a"></div> */}
+      {categories.map((category, index) => (
+        // controlled component
+        <MenuCategory
+          key={category?.card?.card.title}
+          data={category?.card?.card}
+        />
+      ))}
     </div>
   );
 };

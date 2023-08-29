@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromtedLabel } from "./RestaurantCard";
 import { resList, newresList } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -10,6 +10,8 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  // const RestaurantCardPromoted = withPromtedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -24,13 +26,12 @@ const Body = () => {
     // 17.440081, 78.348915. gachibowli lat&lan
     // 16.989065, 82.247467 kakinada lat&lan
     const json = await data.json();
-    console.log(json?.data?.cards);
     // Optional Chaining
     setListOfRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -94,6 +95,12 @@ const Body = () => {
             to={`/restaurants/${restaurant.info.id}`}
           >
             <RestaurantCard resData={restaurant} />
+            
+            {/* {restaurant.info.aggregatedDiscountInfoV3 ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )} */}
           </Link>
         ))}
       </div>

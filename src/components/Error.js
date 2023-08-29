@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouteError } from "react-router-dom";
+import { useRouteError,Link } from "react-router-dom";
 
 const Error = () => {
   const err = useRouteError();
@@ -8,6 +8,9 @@ const Error = () => {
       <h1 className="not-found-heading">
         {err.status} : {err.statusText}
       </h1>
+     <Link to='/'>
+      <button style={{cursor:"pointer"}}>Back to home</button>
+      </Link>
     </div>
   );
 };
