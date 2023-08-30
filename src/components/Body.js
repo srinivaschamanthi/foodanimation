@@ -28,10 +28,10 @@ const Body = () => {
     const json = await data.json();
     // Optional Chaining
     setListOfRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 

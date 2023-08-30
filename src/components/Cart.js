@@ -1,42 +1,40 @@
-import Shimmer from "./Shimmer";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { CDN_URL } from "../utils/constants.js";
+import { useSelector } from "react-redux";
+import {  decreaseQuantity,
+  increaseQuantity,
+  clearCart,} from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
-import {addItem} from '../utils/cartSlice'
-import { toast } from "react-toastify";
+import { CDN_URL } from "../utils/constants";
 
-const MenuCategory = (data) => {
+const Cart = () => {
+  const cartItems = useSelector((store) => store.cart.items);
+
+  console.log(cartItems);
+
   const dispatch = useDispatch();
 
   const handleAddItem = (item) => {
     // Dispatch an action
     dispatch(addItem(item));
-    toast.success(item.card.info.name +" added to cart");
-    console.log("iki");
   };
 
-  console.log(data);
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
   return (
-    <div>
+    <div className="Restaurant_container">
+      <h1>Cart</h1>
       <div>
-        <Accordion defaultExpanded style={{ boxShadow: "none" }}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className="styles_headerNestedTitle__1PFSM">
-              {data.data.title} ({data.data.itemCards.length})
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <div>
-              <div>
-                {data.data.itemCards.map((item) => (
+        <button
+          onClick={handleClearCart}
+        >
+          Clear Cart
+        </button>
+        {cartItems?.length === 0 && (
+          <h1> Cart is empty. Add Items to the cart!</h1>
+        )}
+        <div>
+                {cartItems.map((item) => (
                   <div key={item.card.info.id}>
                     <div className="singleItem">
                       <div>
@@ -68,13 +66,9 @@ const MenuCategory = (data) => {
                   </div>
                 ))}
               </div>
-            </div>
-          </AccordionDetails>
-        </Accordion>
       </div>
-      <div className="main_border__1Cc4a"></div>
     </div>
   );
 };
 
-export default MenuCategory;
+export default Cart;

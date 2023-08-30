@@ -30,7 +30,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="about" className="linkStyle">
+            <Link to="/about" className="linkStyle">
               {" "}
               About us
             </Link>
@@ -40,7 +40,7 @@ const Header = () => {
               Contact Us
             </Link>
           </li> */}
-          <li>Cart</li>
+          <li><Link to='/cart' className="linkStyle">Cart</Link></li>
           <li>
         <i className="fa fa-wifi" style={wifiStyle}></i>
 
