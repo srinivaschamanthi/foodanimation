@@ -43,10 +43,10 @@ const Body = () => {
     //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     // );
     setListOfRestaurants(
-     restaurants[1] 
+     restaurants[0] 
     )
     setFilteredRestaurant(
-      restaurants[1]
+      restaurants[0]
     )
   };
 
