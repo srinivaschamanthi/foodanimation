@@ -13,7 +13,7 @@ import {
   increaseQuantity,
 } from "../utils/cartSlice";
 import { toast } from "react-toastify";
-import { ItemList } from "./ItemList";
+import  ItemList  from "./ItemList";
 
 const MenuCategory = (data) => {
   const dispatch = useDispatch();

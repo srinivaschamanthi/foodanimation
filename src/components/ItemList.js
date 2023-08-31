@@ -16,7 +16,7 @@ import {
 import { toast } from "react-toastify";
 import { ItemList } from "./ItemList";
 
-export function ItemList({ item }) {
+const  ItemList =({ item })=> {
   const dispatch = useDispatch();
 
   const changingValueRef = useRef(0);
@@ -92,3 +92,5 @@ export function ItemList({ item }) {
     </div>
   );
 }
+
+export default ItemList
