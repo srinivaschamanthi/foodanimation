@@ -7,7 +7,6 @@ import {
 } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
-import { ItemList } from "./ItemList";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
