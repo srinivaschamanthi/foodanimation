@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 import  ItemList  from "./ItemList";
 
 const MenuCategory = (data) => {
+  console.log(data,'data');
   const dispatch = useDispatch();
   const changingValueRef = useRef(0);
 

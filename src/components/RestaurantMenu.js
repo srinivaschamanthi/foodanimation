@@ -39,15 +39,26 @@ const RestaurantMenu = () => {
   const { lastMileTravel, deliveryTime } =
     resInfo?.cards[0]?.card?.card?.info.sla;
 
-  const { itemCards, title, imageId } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-  const categories =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-      (c) =>
-        c.card?.["card"]?.["@type"] ===
+  // const { itemCards, title, imageId } =
+  //   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  // const categories =
+  //   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+  //     (c) =>
+  //       c.card?.["card"]?.["@type"] ===
+  //       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  //   );
+  //   console.log(categories);
+  const categories = resInfo.cards
+  ?.filter((y) => y?.groupedCard)
+  ?.map((z) => {
+    return z?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+      (a) =>
+        a?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
+  });
 
+  
 
   return (
     <div className="Restaurant_container">
@@ -173,7 +184,7 @@ const RestaurantMenu = () => {
         </Accordion>
       </div>
       <div className="main_border__1Cc4a"></div> */}
-      {categories.map((category, index) => (
+      {categories[0].map((category, index) => (
         // controlled component
         <MenuCategory
           key={category?.card?.card.title}
