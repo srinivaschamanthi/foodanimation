@@ -14,7 +14,6 @@ import {
   increaseQuantity,
 } from "../utils/cartSlice";
 import { toast } from "react-toastify";
-import { ItemList } from "./ItemList";
 
 const  ItemList =({ item })=> {
   const dispatch = useDispatch();
