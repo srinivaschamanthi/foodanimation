@@ -19,20 +19,35 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.440081&lng=78.348915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-
-      // "https://www.swiggy.com/mapi/homepage/getCards?lat=17.428934&lng=78.3529326"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.440081&lng=78.348915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
-    // 17.440081, 78.348915. gachibowli lat&lan
-    // 16.989065, 82.247467 kakinada lat&lan
     const json = await data.json();
+    const restaurants = json.data.cards
+    ?.filter(
+      (y) =>
+        y?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget"
+    )
+    ?.filter(
+      (x) =>
+        x?.card?.card?.id === "top_brands_for_you" ||
+        x?.card?.card?.id === "restaurant_grid_listing"
+    )
+    ?.map((z) => z?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    console.log(restaurants);
     // Optional Chaining
+    // setListOfRestaurants(
+    //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
+    // setFilteredRestaurant(
+    //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
     setListOfRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+     restaurants[1] 
+    )
     setFilteredRestaurant(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+      restaurants[1]
+    )
   };
 
   const onlineStatus = UseOnlineStatus();
@@ -95,7 +110,7 @@ const Body = () => {
             to={`/restaurants/${restaurant.info.id}`}
           >
             <RestaurantCard resData={restaurant} />
-            
+
             {/* {restaurant.info.aggregatedDiscountInfoV3 ? (
               <RestaurantCardPromoted resData={restaurant} />
             ) : (

@@ -1,3 +1,7 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -317,6 +321,28 @@ ul {
   text-transform: uppercase;
 }
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
+.add-items-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+
+.addCart {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 8px;
+  color: #34d399;
+  font-weight: 600;
+  position: absolute;
+  cursor: pointer;
+  width: 86px!important;
+  height: 26px!important;
+  transform: translatey(50%);
+  z-index: 1;
+}
+
+
