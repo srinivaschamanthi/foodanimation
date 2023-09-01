@@ -5,7 +5,7 @@ class UserClass extends React.Component {
     super(props);
 
     this.state = {
-      url:"www.srinivaschamanthi.in",
+      url:"https://www.srinivaschamanthi.in/",
       userInfo: {
         name: "Dummy",
         location: "Default",
