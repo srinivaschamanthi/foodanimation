@@ -9,13 +9,16 @@ export default function SimpleBackdrop() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div>
+    <div >
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={onlineStatus}
       >
+        <div className="backdrop">
         <CircularProgress color="inherit" />
-        <h1>Looks like you are offline🔴! Check your internet connection</h1>
+        <h3>Looks like you are offline🔴!</h3>
+        <h2>Check your internet connection</h2>
+        </div>
       </Backdrop>
     </div>
   );

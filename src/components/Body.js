@@ -1,15 +1,16 @@
 import RestaurantCard, { withPromtedLabel } from "./RestaurantCard";
-import { resList, newresList } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { UseOnlineStatus } from "../utils/useOnlineStatus";
 import SimpleBackdrop from "./SimpleBackdrop";
+import Unserviceable from "./Unserviceable";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [unservice, setUnservice] = useState(false);
 
   // const RestaurantCardPromoted = withPromtedLabel(RestaurantCard);
 
@@ -18,16 +19,20 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
+    //   const permissionMessage = "please allow your location to provide Restaurants Near By";
+
+    // if (confirm(permissionMessage)) {
     navigator.geolocation.getCurrentPosition(async function (position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
-      console.log(latitude, longitude);
+      //     console.log(latitude, longitude);
 
       const data = await fetch(
         `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
       );
       const json = await data.json();
+      console.log(json.data.cards[0].card.card.title);
       const restaurants = json.data.cards
         ?.filter(
           (y) =>
@@ -49,12 +54,15 @@ const Body = () => {
       // );
       setListOfRestaurants(restaurants[0]);
       setFilteredRestaurant(restaurants[0]);
+      setUnservice(json.data.cards[0].card.card.id === "swiggy_not_present")
     });
+    // ;}
   };
 
   const onlineStatus = UseOnlineStatus();
 
   if (onlineStatus === false) return <SimpleBackdrop />;
+  if (unservice === true) return <Unserviceable />;
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
