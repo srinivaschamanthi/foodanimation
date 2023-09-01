@@ -17,7 +17,7 @@ const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 const AppLayout = () => {
   return (
     <Provider store={appStore}>
-      <div className="app">
+      <div >
         <Header />
         <Outlet />
       </div>

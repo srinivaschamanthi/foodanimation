@@ -2,24 +2,32 @@
 @tailwind components;
 @tailwind utilities; */
 
+body {
+  margin: 0;
+  
+
+}
+
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   /* border: 1px; */
   background-color: #f9f9f9;
   position: sticky;
   top: 0;
+  min-width: max-content;
   z-index: 100; /* Ensure the header is above other content */
 }
+
 .logo-container {
   padding-left: 20px;
   cursor: pointer;
 }
 
 .logo {
-  width: 150px;
-  height: 50px;
-  padding-top: 30px;
+  width: 100px;
+  height: 40px;
 }
 .styled-slogan-text {
   color: gray; /* Blue color */
@@ -30,6 +38,7 @@
 
 .nav-items {
   padding: 0px 20px;
+  color: #3d4152;
 }
 
 .nav-items > ul {
@@ -39,13 +48,14 @@
 }
 
 .nav-items > ul > li {
-  padding: 10px;
-  margin: 10px;
+  margin: 0px 10px;
+  padding: 0px 7px;
 }
 
 .res-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .res-card {
@@ -339,10 +349,8 @@ ul {
   font-weight: 600;
   position: absolute;
   cursor: pointer;
-  width: 86px!important;
-  height: 26px!important;
+  width: 86px !important;
+  height: 26px !important;
   transform: translatey(50%);
   z-index: 1;
 }
-
-

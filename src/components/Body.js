@@ -34,7 +34,6 @@ const Body = () => {
         x?.card?.card?.id === "restaurant_grid_listing"
     )
     ?.map((z) => z?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    console.log(restaurants);
     // Optional Chaining
     // setListOfRestaurants(
     //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants

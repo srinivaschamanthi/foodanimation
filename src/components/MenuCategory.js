@@ -16,7 +16,6 @@ import { toast } from "react-toastify";
 import  ItemList  from "./ItemList";
 
 const MenuCategory = (data) => {
-  console.log(data,'data');
   const dispatch = useDispatch();
   const changingValueRef = useRef(0);
 
@@ -37,7 +36,6 @@ const MenuCategory = (data) => {
     changingValueRef.current = item.card.info.id;
 
     // You can use the updated value as needed
-    console.log('Updated value:', changingValueRef.current);
     dispatch(addItem({ ...item, inStock: 1 }));
     toast.success(item.card.info.name + " added to cart");
   };

@@ -11,7 +11,6 @@ import { CDN_URL } from "../utils/constants";
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
-  console.log(cartItems, "cartitems");
 
   const dispatch = useDispatch();
 
