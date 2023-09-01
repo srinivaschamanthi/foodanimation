@@ -37,9 +37,9 @@ class UserClass extends React.Component {
     return (
       <div className="user-card">
         <img style={{height:'100px'}} src={avatar_url} />
-        <h2>Name : {name}</h2>
-        <h3>Location : {location}</h3>
-        <h4>Contact : @srinivaschamanthi</h4>
+        <h2>{name}</h2>
+        <h3>{location}</h3>
+        <h4>Frontend Developer / UI Engineer</h4>
         <a href={this.state.url} style={{ textDecoration: "none", color: "darkgrey" }}>❤️SRINIVAS CHAMANTHI</a>
       </div>
     );
