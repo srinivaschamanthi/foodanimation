@@ -32,7 +32,7 @@ const Cart = () => {
 
       <div>
         {cartItems?.length === 0 && (
-          <div>
+          <div className="nocart-container">
             <img className="cart-no-image"
               src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0"
               alt="empty cart"
