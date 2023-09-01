@@ -5,6 +5,7 @@ class UserClass extends React.Component {
     super(props);
 
     this.state = {
+      url:"www.srinivaschamanthi.in",
       userInfo: {
         name: "Dummy",
         location: "Default",
@@ -39,6 +40,7 @@ class UserClass extends React.Component {
         <h2>Name : {name}</h2>
         <h3>Location : {location}</h3>
         <h4>Contact : @srinivaschamanthi</h4>
+        <a href={this.state.url} style={{ textDecoration: "none", color: "darkgrey" }}>❤️SRINIVAS CHAMANTHI</a>
       </div>
     );
   }
