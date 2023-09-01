@@ -8,16 +8,7 @@ class About extends React.Component {
   }
 
   componentDidMount() {
-    // if ("geolocation" in navigator) {
-    //   navigator.geolocation.getCurrentPosition(function(position) {
-    //     const  latitude = position.coords.latitude;
-    //     const longitude = position.coords.longitude;
-    //   }, function(error) {
-    //     console.error("Error getting location:", error.message);
-    //   });
-    // } else {
-    //   console.log("Geolocation is not available.");
-    // }
+   
   }
 
   render() {

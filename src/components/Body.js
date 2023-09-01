@@ -18,35 +18,38 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.440081&lng=78.348915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    const restaurants = json.data.cards
-    ?.filter(
-      (y) =>
-        y?.card?.card?.["@type"] ===
-        "type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget"
-    )
-    ?.filter(
-      (x) =>
-        x?.card?.card?.id === "top_brands_for_you" ||
-        x?.card?.card?.id === "restaurant_grid_listing"
-    )
-    ?.map((z) => z?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    // Optional Chaining
-    // setListOfRestaurants(
-    //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    // );
-    // setFilteredRestaurant(
-    //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    // );
-    setListOfRestaurants(
-     restaurants[0] 
-    )
-    setFilteredRestaurant(
-      restaurants[0]
-    )
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      console.log(latitude, longitude);
+
+      const data = await fetch(
+        `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+      );
+      const json = await data.json();
+      const restaurants = json.data.cards
+        ?.filter(
+          (y) =>
+            y?.card?.card?.["@type"] ===
+            "type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget"
+        )
+        ?.filter(
+          (x) =>
+            x?.card?.card?.id === "top_brands_for_you" ||
+            x?.card?.card?.id === "restaurant_grid_listing"
+        )
+        ?.map((z) => z?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      // Optional Chaining
+      // setListOfRestaurants(
+      //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      // );
+      // setFilteredRestaurant(
+      //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      // );
+      setListOfRestaurants(restaurants[0]);
+      setFilteredRestaurant(restaurants[0]);
+    });
   };
 
   const onlineStatus = UseOnlineStatus();
@@ -81,16 +84,6 @@ const Body = () => {
         </div>
         <button
           className="top-rated-button"
-          style={{
-            borderRadius: "10px",
-            border: "1px solid #d4d5d9",
-            cursor: "pointer",
-            backgroundColor: "#fff",
-            color: "#60b246",
-            fontWeight: "600",
-            fontSize: ".9rem",
-            textAlign: "center",
-          }}
           onClick={() => {
             setFilteredRestaurant(
               listOfRestaurants.filter((res) => res.info.avgRating >= 4)
