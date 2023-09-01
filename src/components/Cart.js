@@ -5,12 +5,12 @@ import {
   clearCart,
   addItem,
 } from "../utils/cartSlice";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
-
 
   const dispatch = useDispatch();
 
@@ -25,11 +25,29 @@ const Cart = () => {
 
   return (
     <div className="Restaurant_container">
-      <h1>Cart</h1>
-      <div>
+      {cartItems?.length > 1 && (
         <button onClick={handleClearCart}>Clear Cart</button>
+
+      )}
+
+      <div>
         {cartItems?.length === 0 && (
-          <h1> Cart is empty. Add Items to the cart!</h1>
+          <div>
+            <img className="cart-no-image"
+              src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0"
+              alt="empty cart"
+            />
+            <h4> Your cart is empty</h4>
+            <h5>You can go to home page to view more restaurants</h5>
+
+            <div className="">
+            <Link to="/"> 
+              <button className="see-res-cart">
+                SEE RESTAURANTS NEAR YOU
+              </button>
+            </Link>
+          </div>
+          </div>
         )}
         <div>
           {cartItems.map((item) => (

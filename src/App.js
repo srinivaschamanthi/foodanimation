@@ -21,7 +21,7 @@ const AppLayout = () => {
         <Header />
         <Outlet />
       </div>
-      <ToastContainer />
+      <ToastContainer autoClose={1500} />
     </Provider>
   );
 };
