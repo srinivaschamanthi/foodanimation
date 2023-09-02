@@ -30,10 +30,9 @@ const Body = () => {
         //     console.log(latitude, longitude);
 
         const data = await fetch(
-          `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${17.1145559}&lng=${82.2521517}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+          `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
         );
         const json = await data.json();
-        console.log(json.data.cards);
         const restaurants = json.data.cards
           ?.filter(
             (y) =>
@@ -46,7 +45,6 @@ const Body = () => {
               x?.card?.card?.id === "restaurant_grid_listing"
           )
           ?.map((z) => z?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        console.log(restaurants);
         // Optional Chaining
         // setListOfRestaurants(
         //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -55,7 +53,6 @@ const Body = () => {
         //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         // );
         setListOfRestaurants(restaurants[0]);
-        console.log(listOfRestaurants);
         setFilteredRestaurant(restaurants[0]);
         setUnservice(json.data.cards[0].card.card.id === "swiggy_not_present");
       });
