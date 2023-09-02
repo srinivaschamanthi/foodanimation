@@ -59,7 +59,7 @@ const MenuCategory = (data) => {
                 {data.data.itemCards.map((item) => (
                   <div key={item.card.info.id}>
                     <ItemList item={item}/>
-                    <div className="styles_divider__2JelH"></div>
+                    {/* <div className="styles_divider__2JelH"></div> */}
                   </div>
                 ))}
               </div>

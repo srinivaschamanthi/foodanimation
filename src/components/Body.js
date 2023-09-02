@@ -32,6 +32,8 @@ const Body = () => {
         const data = await fetch(
           `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
         );
+        // 17.1145559
+        // 82.2521517
         const json = await data.json();
         const restaurants = json.data.cards
           ?.filter(

@@ -76,13 +76,14 @@ const  ItemList =({ item })=> {
               <div onClick={() => handleAddItem(item)}>Add +</div>
             )}
           </div>
+          {item.card.info.imageId &&
           <img
             className="styles_itemImage__3CsDL"
             //   alt={item.card.info.name}
             src={
-              CDN_URL + item.card.info.imageId || CDN_URL + item.card.info.id
+              CDN_URL + item.card.info.imageId
             }
-          ></img>
+          ></img>}
           {/* <button>Add +</button> */}
         </div>
       </div>
