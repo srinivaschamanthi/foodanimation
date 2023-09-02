@@ -22,41 +22,47 @@ const Body = () => {
     //   const permissionMessage = "please allow your location to provide Restaurants Near By";
 
     // if (confirm(permissionMessage)) {
-    navigator.geolocation.getCurrentPosition(async function (position) {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
+    try {
+      navigator.geolocation.getCurrentPosition(async function (position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
 
-      //     console.log(latitude, longitude);
+        //     console.log(latitude, longitude);
 
-      const data = await fetch(
-        `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
-      );
-      const json = await data.json();
-      console.log(json.data.cards[0].card.card.title);
-      const restaurants = json.data.cards
-        ?.filter(
-          (y) =>
-            y?.card?.card?.["@type"] ===
-            "type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget"
-        )
-        ?.filter(
-          (x) =>
-            x?.card?.card?.id === "top_brands_for_you" ||
-            x?.card?.card?.id === "restaurant_grid_listing"
-        )
-        ?.map((z) => z?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      // Optional Chaining
-      // setListOfRestaurants(
-      //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      // );
-      // setFilteredRestaurant(
-      //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      // );
-      setListOfRestaurants(restaurants[0]);
-      setFilteredRestaurant(restaurants[0]);
-      setUnservice(json.data.cards[0].card.card.id === "swiggy_not_present")
-    });
-    // ;}
+        const data = await fetch(
+          `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${17.1145559}&lng=${82.2521517}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+        );
+        const json = await data.json();
+        console.log(json.data.cards);
+        const restaurants = json.data.cards
+          ?.filter(
+            (y) =>
+              y?.card?.card?.["@type"] ===
+              "type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget"
+          )
+          ?.filter(
+            (x) =>
+              x?.card?.card?.id === "top_brands_for_you" ||
+              x?.card?.card?.id === "restaurant_grid_listing"
+          )
+          ?.map((z) => z?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        console.log(restaurants);
+        // Optional Chaining
+        // setListOfRestaurants(
+        //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        // );
+        // setFilteredRestaurant(
+        //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        // );
+        setListOfRestaurants(restaurants[0]);
+        console.log(listOfRestaurants);
+        setFilteredRestaurant(restaurants[0]);
+        setUnservice(json.data.cards[0].card.card.id === "swiggy_not_present");
+      });
+      // ;}
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
   };
 
   const onlineStatus = UseOnlineStatus();

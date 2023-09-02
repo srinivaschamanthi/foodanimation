@@ -10,12 +10,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px; */
   background-color: #f9f9f9;
   position: sticky;
   top: 0;
   min-width: max-content;
-  z-index: 100; /* Ensure the header is above other content */
+  z-index: 100; 
 }
 
 .logo-container {
@@ -28,7 +27,7 @@ body {
   height: 40px;
 }
 .styled-slogan-text {
-  color: gray; /* Blue color */
+  color: gray; 
   opacity: 40%;
   width: 150px;
   font-family: cursive, sans-serif;
@@ -62,18 +61,12 @@ body {
   width: 250px;
   word-break: break-word;
   border-radius: 10px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
   transition: transform 0.1s;
-  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 
 .res-card:hover {
   cursor: pointer;
-  /* border: 1px solid black; */
-  /* transform: scale(1.05); */
   transform: scale(0.95);
-  /* box-shadow: 0 12px 20px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); */
-  /* box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); */
 }
 
 .search {
@@ -85,7 +78,7 @@ body {
   border-radius: 10px;
 }
 .top-rated-button i {
-  margin-left: 5px; /* Add space between content and icon */
+  margin-left: 5px;
 }
 .top-rated-button {
   border-radius: 10px;
@@ -116,8 +109,6 @@ body {
   padding: 0 5px;
   font-size: 15px;
   background-color: #48c479;
-  /* rating above #48c479 
-  rating below 4  #db7c38 */
   color: #fff;
   align-items: center;
   display: flex;
@@ -145,7 +136,6 @@ body {
 }
 .search-container {
   display: flex;
-  /* align-items: center; */
 }
 
 .search-input {
@@ -271,8 +261,8 @@ hr {
 }
 
 ul {
-  padding-left: 0; /* Remove padding */
-  margin-left: 0; /* Remove margin */
+  padding-left: 0;
+  margin-left: 0; 
   list-style-type: none;
 }
 .RestaurantTimeCost_item__2HCUz {
