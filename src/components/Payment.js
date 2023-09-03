@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { clearCart } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
+import logo from '../assets/logo.png'
 
 
 const Payment = () => {
@@ -32,7 +33,7 @@ const Payment = () => {
       amount: finalBill * 100, // 2000 paise = INR 20, amount in paisa
       name: "Srinivas Chamanthi",
       description: "Purchase Description",
-      image: "/your_logo.png",
+      image: logo,
       handler: function (response) {
         toast.success(
           `Order placed successfully! Your order ID is ${response.razorpay_payment_id}`,
