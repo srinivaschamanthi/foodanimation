@@ -193,7 +193,7 @@ body {
 .Restaurant_container {
   max-width: 800px;
   min-height: 800px;
-  margin: 20px auto 0;
+  margin: 20px auto 0 20px;
 }
 
 .RestaurantHeader_container {
@@ -403,4 +403,26 @@ ul {
   justify-content: center;
   align-items: center;
   color: silver;
+}
+
+.billdetails{
+  margin-bottom: 10px;
+  color: #686b78;
+  font-size: 13px;
+  padding-bottom: 20px;
+  font-family: ProximaNova, arial, Helvetica Neue, sans-serif;
+}
+.billpaybutton{
+  padding: 11px 16px;
+    background-color: #60b246;
+    color: #fff;
+    position: relative;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+._1_jO5 {
+  border-bottom: 1px dashed #bebfc5;
+  margin-left: 50px;
 }

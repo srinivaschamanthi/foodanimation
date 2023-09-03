@@ -27,7 +27,6 @@ const Body = () => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        //     console.log(latitude, longitude);
 
         const data = await fetch(
           `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
@@ -47,18 +46,11 @@ const Body = () => {
               x?.card?.card?.id === "restaurant_grid_listing"
           )
           ?.map((z) => z?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        // Optional Chaining
-        // setListOfRestaurants(
-        //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-        // );
-        // setFilteredRestaurant(
-        //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-        // );
+
         setListOfRestaurants(restaurants[0]);
         setFilteredRestaurant(restaurants[0]);
         setUnservice(json.data.cards[0].card.card.id === "swiggy_not_present");
       });
-      // ;}
     } catch (error) {
       console.error("Fetch error:", error);
     }

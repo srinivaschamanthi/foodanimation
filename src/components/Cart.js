@@ -8,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
+import Payment from "./Payment";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
@@ -27,13 +28,13 @@ const Cart = () => {
     <div className="Restaurant_container">
       {cartItems?.length > 1 && (
         <button onClick={handleClearCart}>Clear Cart</button>
-
       )}
 
       <div>
         {cartItems?.length === 0 && (
           <div className="nocart-container">
-            <img className="cart-no-image"
+            <img
+              className="cart-no-image"
               src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0"
               alt="empty cart"
             />
@@ -41,12 +42,12 @@ const Cart = () => {
             <h5>You can go to home page to view more restaurants</h5>
 
             <div className="">
-            <Link to="/"> 
-              <button className="see-res-cart">
-                SEE RESTAURANTS NEAR YOU
-              </button>
-            </Link>
-          </div>
+              <Link to="/">
+                <button className="see-res-cart">
+                  SEE RESTAURANTS NEAR YOU
+                </button>
+              </Link>
+            </div>
           </div>
         )}
         <div>
@@ -94,6 +95,7 @@ const Cart = () => {
               <div className="styles_divider__2JelH"></div>
             </div>
           ))}
+          {cartItems.length > 0 && <Payment />}
         </div>
       </div>
     </div>
