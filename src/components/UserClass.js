@@ -34,23 +34,23 @@ class UserClass extends React.Component {
     const { name, location, avatar_url } = this.state.userInfo;
     return (
       <div className="user-card">
+        <div class="butterfly"></div>
+
         <Pulse>
-        <img style={{ height: "100px" }} src={avatar_url} />
+          <img style={{ height: "100px" }} src={avatar_url} />
         </Pulse>
         <Fade right>
-        <h2>{name}</h2>
-        <h3>{location}</h3>
-        <h4>Frontend Developer / UI Engineer</h4>
-       <div>
-        <a
-          href={this.state.url}
-          style={{ textDecoration: "none", color: "darkgrey" }}
-        >
-
-          ❤️SRINIVAS CHAMANTHI
-
-        </a>
-        </div>
+          <h2>{name}</h2>
+          <h3>{location}</h3>
+          <h4>Frontend Developer / UI Engineer</h4>
+          <div>
+            <a
+              href={this.state.url}
+              style={{ textDecoration: "none", color: "darkgrey" }}
+            >
+              ❤️SRINIVAS CHAMANTHI
+            </a>
+          </div>
         </Fade>
       </div>
     );

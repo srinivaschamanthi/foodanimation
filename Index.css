@@ -522,3 +522,28 @@ ul {
   display: inline-block;
   animation: heartPulseAnimation infinite;
 }
+/* styles.css */
+
+
+.butterfly {
+  width: 50px;
+  height: 50px;
+  background-color: #ff69b4; /* Pink color, you can change it */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: fly 4s linear infinite;
+}
+
+@keyframes fly {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateY(-50%) translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
