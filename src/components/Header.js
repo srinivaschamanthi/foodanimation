@@ -11,6 +11,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import Tooltip from "@mui/material/Tooltip";
 import HomeIcon from "@mui/icons-material/Home";
+import Pulse from "react-reveal/Pulse";
 
 const Header = () => {
   const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -42,9 +43,9 @@ const Header = () => {
         <ul>
           <li>
             <Link to="/" className="linkStyle">
-            <Tooltip title="Home">
+              <Tooltip title="Home">
                 <IconButton>
-                  <HomeIcon/>
+                  <HomeIcon />
                 </IconButton>
               </Tooltip>
             </Link>

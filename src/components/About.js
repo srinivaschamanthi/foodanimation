@@ -7,15 +7,13 @@ class About extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-   
-  }
+  componentDidMount() {}
 
   render() {
     return (
       <div>
-        <h1>about</h1>
-        <UserClass/>
+        <h1>About</h1>
+        <UserClass />
       </div>
     );
   }

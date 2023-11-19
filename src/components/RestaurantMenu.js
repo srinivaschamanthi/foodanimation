@@ -2,13 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CDN_URL } from "../utils/constants.js";
-import Shimmer from "./Shimmer";
+import Shimmer2 from "./Shimmer2.js";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuCategory from "./MenuCategory";
+import Fade from 'react-reveal/Fade';
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
@@ -27,7 +28,7 @@ const RestaurantMenu = () => {
     const json = await data.json();
     setResInfo(json.data);
   };
-  if (resInfo === null) return <Shimmer />;
+  if (resInfo === null) return <Shimmer2 />;
   const {
     name,
     cuisines,
@@ -61,6 +62,7 @@ const RestaurantMenu = () => {
 
   return (
     <div className="Restaurant_container">
+      <Fade left>
       <div className="RestaurantHeader_container">
         <div className="RestaurantHeader_container_inner">
           <div>
@@ -140,6 +142,7 @@ const RestaurantMenu = () => {
           </ul>
         </div>
       </div>
+      </Fade>
       {/* <div>
         <Accordion defaultExpanded style={{ boxShadow: "none" }}>
           <AccordionSummary

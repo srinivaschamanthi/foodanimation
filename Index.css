@@ -124,9 +124,21 @@ body {
   width: 250px;
   height: 300px;
   border-radius: 20px;
-  background-color: #f0f0f0;
+  background-color: #f0f4f8;
   margin: 20px;
+  animation: shimmer 1s infinite linear;
 }
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
 
 .filter {
   justify-content: center;
@@ -424,4 +436,89 @@ ul {
 ._1_jO5 {
   border-bottom: 1px dashed #bebfc5;
   margin-left: 50px;
+}
+
+
+/* shimmer 2 */
+.loading-container {
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: pulse-animation;
+}
+
+.loading-row {
+  display: flex;
+  gap: 3px;
+}
+
+.loading-box {
+  width: 52px;
+  height: 52px;
+  background-color: #f0f0f0; 
+}
+
+.loading-rounded-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 3px;
+  background-color: #f0f0f0; 
+}
+
+.loading-bar {
+  width: 52px;
+  height: 6px;
+  border-radius: 8px;
+  background-color: #f0f0f0; 
+}
+
+.loading-large-bar {
+  width: 52px;
+  height: 12px;
+  border-radius: 8px;
+  background-color: #f0f0f0; 
+}
+
+.loading-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #f0f0f0; 
+}
+
+@keyframes pulse-animation {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* shimmer2 ends */
+
+/* HeartPulse.css */
+@keyframes heartPulseAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.heart-symbol {
+  display: inline-block;
+  animation: heartPulseAnimation infinite;
 }

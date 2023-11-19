@@ -14,6 +14,7 @@ import {
 } from "../utils/cartSlice";
 import { toast } from "react-toastify";
 import  ItemList  from "./ItemList";
+import Fade from 'react-reveal/Fade';
 
 const MenuCategory = (data) => {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ const MenuCategory = (data) => {
 
   return (
     <div>
+      <Fade right>
       <div>
         <Accordion defaultExpanded style={{ boxShadow: "none" }}>
           <AccordionSummary
@@ -68,6 +70,7 @@ const MenuCategory = (data) => {
         </Accordion>
       </div>
       <div className="main_border__1Cc4a"></div>
+      </Fade>
     </div>
   );
 };
